@@ -14,4 +14,10 @@ export default class ProductController {
       return res.status(500).send({ message: (error as Error).message });
     }
   };
+
+  public getAllProducts = async (_req: Request, res: Response, _next: NextFunction):
+  Promise<Response> => {
+    const products = await this.service.getAllProducts();
+    return res.status(200).json(products);
+  };
 }

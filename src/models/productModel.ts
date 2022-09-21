@@ -10,4 +10,11 @@ export default class ProductModel {
     );
     return { id: product.insertId, name, amount };
   };
+
+  public getAllProducts = async ():Promise<IProduct[]> => {
+    const [product] = await connection.execute(
+      'SELECT * FROM Trybesmith.Products',
+    );
+    return product as IProduct[];
+  };
 }
