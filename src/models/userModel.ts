@@ -1,6 +1,7 @@
 import { ResultSetHeader } from 'mysql2/promise';
 import connection from './connection';
 import IUser from '../interfaces/users.interface';
+import ILogin from '../interfaces/login.interface';
 
 export default class UserModel {
   public createNewUser = async (
@@ -14,5 +15,16 @@ export default class UserModel {
       [username, classe, level, password],
     );
     return { id: user.insertId, username, classe, level, password };
+  };
+
+  public newLogin = async (login: ILogin): Promise<IUser | undefined> => {
+    const { username, password } = login;
+    const result = await connection.execute(
+      'SELECT * FROM Trybesmith.Users WHERE username=? AND password=?',
+      [username, password],
+    );
+    const [rows] = result;
+    const [user] = rows as IUser[];
+    return user;
   };
 }
