@@ -27,4 +27,15 @@ export default class OrderService {
     });
     return orderIds;
   };
+
+  public createOrder = async (userId: number | undefined, productsIds: number[]) => {
+    const orderId = await this.modelOr.createOrder(userId);
+
+    const updateProductOrderIdPromises = productsIds.map(
+      (productId) => this.modelP.updateOrderId(productId, orderId),
+    );
+    await Promise.all(updateProductOrderIdPromises);
+
+    return { userId, productsIds };
+  };
 }
