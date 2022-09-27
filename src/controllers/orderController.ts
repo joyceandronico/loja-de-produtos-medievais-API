@@ -12,7 +12,7 @@ export default class OrderController {
   };
 
   public createOrder = async (req: UserLog, res: Response) => {
-    const userId = req.body.user?.id;
+    const userId = req.user?.id;
     const { productsIds } = req.body;
 
     const createdOrder = await this.service.createOrder(userId, productsIds);
