@@ -11,7 +11,7 @@ export default class UserModel {
     password: string,
   ):Promise<IUser> => {
     const [user] = await connection.execute<ResultSetHeader>(
-      'INSERT INTO Trybesmith.Users (username, classe, level, password) VALUES (?, ?, ?, ?);',
+      'INSERT INTO loja_medieval.Users (username, classe, level, password) VALUES (?, ?, ?, ?);',
       [username, classe, level, password],
     );
     return { id: user.insertId, username, classe, level, password };
@@ -20,7 +20,7 @@ export default class UserModel {
   public newLogin = async (login: ILogin): Promise<IUser | undefined> => {
     const { username, password } = login;
     const result = await connection.execute(
-      'SELECT * FROM Trybesmith.Users WHERE username=? AND password=?',
+      'SELECT * FROM loja_medieval.Users WHERE username=? AND password=?',
       [username, password],
     );
     const [rows] = result;

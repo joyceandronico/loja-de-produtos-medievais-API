@@ -5,7 +5,7 @@ import IProduct from '../interfaces/products.interface';
 export default class ProductModel {
   public createProduct = async (name: string, amount: string):Promise<IProduct> => {
     const [product] = await connection.execute<ResultSetHeader>(
-      'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?);',
+      'INSERT INTO loja_medieval.Products (name, amount) VALUES (?, ?);',
       [name, amount],
     );
     return { id: product.insertId, name, amount };
@@ -13,14 +13,14 @@ export default class ProductModel {
 
   public getAllProducts = async ():Promise<IProduct[]> => {
     const [product] = await connection.execute(
-      'SELECT * FROM Trybesmith.Products',
+      'SELECT * FROM loja_medieval.Products',
     );
     return product as IProduct[];
   };
 
   public updateOrderId = async (id: number, orderId: number) => {
     await connection.execute(
-      'UPDATE Trybesmith.Products SET orderId=? WHERE id=?',
+      'UPDATE loja_medieval.Products SET orderId=? WHERE id=?',
       [orderId, id],
     );
   };

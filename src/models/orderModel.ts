@@ -10,11 +10,11 @@ export default class OrderModel {
   }
 
   public getAllOrders = async ():Promise<IOrder[]> => {
-    const [orders] = await connection.execute('SELECT * FROM Trybesmith.Orders');
+    const [orders] = await connection.execute('SELECT * FROM loja_medieval.Orders');
 
     const OrderList = await Promise.all(Object.values(orders).map(async (order) => {
       const [products] = await this.connection.execute(
-        'SELECT * FROM Trybesmith.Products WHERE orderId = ?',
+        'SELECT * FROM loja_medieval.Products WHERE orderId = ?',
         [order.id],
       );
 
@@ -28,7 +28,7 @@ export default class OrderModel {
 
   public createOrder = async (userId: number | undefined): Promise<number> => {
     const result = await connection.execute<ResultSetHeader>(
-      'INSERT INTO Trybesmith.Orders (userId) VALUES (?);',
+      'INSERT INTO loja_medieval.Orders (userId) VALUES (?);',
       [userId],
     );
     const [dataInserted] = result;
