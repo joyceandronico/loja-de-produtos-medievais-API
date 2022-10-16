@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 
-const orrderValidation = (req: Request, res: Response, next: NextFunction) => {
+const orderValidation = (req: Request, res: Response, next: NextFunction) => {
   const { productsIds } = req.body;
 
   if (!productsIds) {
@@ -16,4 +16,4 @@ const orrderValidation = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
-export default orrderValidation;
+export default orderValidation;
