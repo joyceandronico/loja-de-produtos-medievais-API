@@ -69,13 +69,13 @@ MYSQL_PASSWORD=1234
 
 # Endpoints
 
-## Endpoint para o cadastro de produtos
-
-- O endpoint será acessível através do caminho (`/products`);
-
 <details close>
 
   <br>
+
+## Endpoint para o cadastro de produtos
+
+- O endpoint será acessível através do caminho (`/products`);
 
 - Os produtos enviados serão salvos na tabela `Products` do banco de dados;
 
@@ -141,12 +141,14 @@ MYSQL_PASSWORD=1234
   > 👉 Para caso os dados sejam enviados corretamente
 
   - Se a pessoa usuária for cadastrada com sucesso, o resultado deverá ser conforme o exibido abaixo, com um _status http_ `201` e retornando um _token_:
-    ```json
 
+  ```json
   {
 	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjozLCJ1c2VybmFtZSI6InlyYWEifSwiaWF0IjoxNjY1ODg3NTExLCJleHAiOjE2NjY0OTIzMTF9.oDRUJtVKzCrYUnjELNa1Pj58VeB_JVVzMPe63xRBBAk"
   }
-    ```
+
+  ```
+
 </details>
 
 ---
@@ -233,12 +235,14 @@ MYSQL_PASSWORD=1234
   > 👉 Para caso os dados sejam enviados corretamente
 
   - Se o login foi feito com sucesso, o resultado deverá ser um _status http_ `200` e deverá retornar um _token_:
-    ```json
 
+  ```json
   {
 	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjozLCJ1c2VybmFtZSI6InlyYWEifSwiaWF0IjoxNjY1ODg3NTExLCJleHAiOjE2NjY0OTIzMTF9.oDRUJtVKzCrYUnjELNa1Pj58VeB_JVVzMPe63xRBBAk"
   }
-    ```
+
+  ```
+
 </details>
 
 ---
@@ -302,8 +306,7 @@ MYSQL_PASSWORD=1234
 
 
 <details close>
-  <summary>As seguintes validações serão ser realizadas:</summary>
-
+ 
   <br>
 
   > 👉 Para username
@@ -394,7 +397,7 @@ MYSQL_PASSWORD=1234
 
 ---
 
-## 8 - Crie um endpoint para o cadastro de um pedido
+## Endpoint para o cadastro de um pedido
 
 - O endpoint será acessível através do caminho (`/orders`);
 
@@ -472,3 +475,20 @@ MYSQL_PASSWORD=1234
 </details>
 
 ---
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+  
+
